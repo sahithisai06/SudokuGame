@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">  
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sudoku Game</title>
+    <link rel="stylesheet" href="sudoku.css">
+</head>
+<body>
+    <h1>Sudoku Game</h1>
+    <div id="sudoku-board">
+      ...
+    </div>
+    <button id="new-game">New Game</button>
+    <script>
+        const boardElement = document.getElementById('sudoku-board');
+        const newGameButton = document.getElementById('new-game');
+        function generateBoard() {
+            boardElement.innerHTML = '';
+            for (let i = 0; i < 9; i++) {
+                const row = document.createElement('div');
+                row.classList.add('sudoku-row');
+                for (let j = 0; j < 9; j++) {
+                    const cell = document.createElement('input');
+                    cell.type = 'text';
+                    cell.maxLength = 1;
+                    cell.classList.add('sudoku-cell');
+                    row.appendChild(cell);
+                }
+                boardElement.appendChild(row);
+            }
+        }
+
+        newGameButton.addEventListener('click', generateBoard);
+        generateBoard();
+
+
+    </script> 
+</html>
